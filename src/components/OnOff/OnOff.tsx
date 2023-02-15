@@ -22,20 +22,20 @@ export const OnOff = (props: OnOffPropsType) => {
 
    return (
       <div className={s.wrapper}>
-         <span style={styleForOff}
+         <div style={styleForOff}
                className={s.off}
                onClick={() => props.setOnOffValue(false)}
-         >Off</span>
-         <span style={styleForOn}
+         >Off</div>
+         <div style={styleForOn}
                className={s.on}
                onClick={() => props.setOnOffValue(true)}
-         >On</span>
-         <span
+         >On</div>
+         <div
             style={styleForCircle}
             className={s.circle}
          >
             💡
-         </span>
+         </div>
       </div>
    );
 };
