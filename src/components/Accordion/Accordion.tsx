@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 type PropsAccordion = {
    title: string
@@ -6,6 +6,7 @@ type PropsAccordion = {
 }
 
 export function Accordion(props: PropsAccordion) {
+
    return (
       <div>
          <AccordionTitle title={props.title}/>

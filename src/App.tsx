@@ -5,6 +5,7 @@ import {Rating} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {PageTitle} from "./components/PageTitle/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
+import {UnControlledAccordion} from "./components/Accordion/UnControlledAccordion";
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
 
          <Accordion title={'Меню'} collapsed={true}/>
          <Accordion title={'Товары'} collapsed={false}/>
+
+         <UnControlledAccordion title={'Не контролирую'}/>
 
          <OnOff
             onOffValue={onOffValue}
