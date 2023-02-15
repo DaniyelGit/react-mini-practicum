@@ -6,10 +6,13 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {PageTitle} from "./components/PageTitle/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/Accordion/UnControlledAccordion";
+import {UnControlledRating} from "./components/Rating/UnControlledRating";
 
 function App() {
 
    const [onOffValue, setOnOffValue] = useState<boolean>(true);
+
+
 
    return (
       <div className={'container'}>
@@ -22,10 +25,12 @@ function App() {
          <Rating value={4}/>
          <Rating value={5}/>
 
-         <Accordion title={'Меню'} collapsed={true}/>
-         <Accordion title={'Товары'} collapsed={false}/>
+         <UnControlledRating/>
 
-         <UnControlledAccordion title={'Не контролирую'}/>
+         {/*<Accordion title={'Меню'} collapsed={true}/>*/}
+         {/*<Accordion title={'Товары'} collapsed={false}/>*/}
+
+         <UnControlledAccordion title={'Menu'}/>
 
          <OnOff
             onOffValue={onOffValue}
