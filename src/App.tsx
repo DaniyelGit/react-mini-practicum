@@ -11,8 +11,7 @@ import {UnControlledRating} from "./components/Rating/UnControlledRating";
 function App() {
 
    const [onOffValue, setOnOffValue] = useState<boolean>(true);
-
-
+   const [collapsed, setCollapsed] = useState<boolean>(true);
 
    return (
       <div className={'container'}>
@@ -25,12 +24,19 @@ function App() {
          <Rating value={4}/>
          <Rating value={5}/>
 
+
+         <Accordion title={'Control Menu'}
+                    collapsed={collapsed}
+                    setCollapsed={() => setCollapsed(!collapsed)}
+         />
+         <UnControlledAccordion title={'Menu'}/>
+
          <UnControlledRating/>
 
          {/*<Accordion title={'Меню'} collapsed={true}/>*/}
          {/*<Accordion title={'Товары'} collapsed={false}/>*/}
 
-         <UnControlledAccordion title={'Menu'}/>
+
 
          <OnOff
             onOffValue={onOffValue}
