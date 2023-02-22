@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingType} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {PageTitle} from "./components/PageTitle/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
@@ -12,6 +12,7 @@ function App() {
 
    const [onOffValue, setOnOffValue] = useState<boolean>(true);
    const [collapsed, setCollapsed] = useState<boolean>(true);
+   const [ratingValue, setRatingValue] = useState<RatingType>(0);
 
    return (
       <div className={'container'}>
@@ -23,7 +24,7 @@ function App() {
          />
          <UnControlledAccordion title={'Menu'}/>
 
-
+         <Rating value={ratingValue} setRatingValue={setRatingValue}/>
          <UnControlledRating/>
 
          {/*<Accordion title={'Меню'} collapsed={true}/>*/}
