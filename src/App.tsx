@@ -7,6 +7,7 @@ import {PageTitle} from "./components/PageTitle/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/Accordion/UnControlledAccordion";
 import {UnControlledRating} from "./components/Rating/UnControlledRating";
+import {UnControlledOnOff} from "./components/OnOff/UnControlledOnOff";
 
 function App() {
 
@@ -27,15 +28,11 @@ function App() {
          <Rating value={ratingValue} setRatingValue={setRatingValue}/>
          <UnControlledRating/>
 
-         {/*<Accordion title={'Меню'} collapsed={true}/>*/}
-         {/*<Accordion title={'Товары'} collapsed={false}/>*/}
-
-
-
          <OnOff
             onOffValue={onOffValue}
             setOnOffValue={setOnOffValue}
          />
+         <UnControlledOnOff/>
       </div>
    );
 }
