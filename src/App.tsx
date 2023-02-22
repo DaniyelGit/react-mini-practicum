@@ -17,19 +17,12 @@ function App() {
       <div className={'container'}>
          <PageTitle title={'Привет Мир !!!'}/>
 
-         <Rating value={0}/>
-         <Rating value={1}/>
-         <Rating value={2}/>
-         <Rating value={3}/>
-         <Rating value={4}/>
-         <Rating value={5}/>
-
-
          <Accordion title={'Control Menu'}
                     collapsed={collapsed}
                     setCollapsed={() => setCollapsed(!collapsed)}
          />
          <UnControlledAccordion title={'Menu'}/>
+
 
          <UnControlledRating/>
 
