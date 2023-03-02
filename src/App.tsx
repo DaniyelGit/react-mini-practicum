@@ -32,7 +32,7 @@ function App() {
             onOffValue={onOffValue}
             setOnOffValue={setOnOffValue}
          />
-         <UnControlledOnOff/>
+         <UnControlledOnOff onChange={setOnOffValue}/>
       </div>
    );
 }

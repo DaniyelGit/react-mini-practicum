@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import s from './OnOff.module.css';
 
 type UnControlledOnOffPropsType = {
-
+   defaultOn?: boolean
+   onChange?: (value: boolean) => void
 }
 
 export const UnControlledOnOff = (props: UnControlledOnOffPropsType) => {
 
-   const [on, setOn] = useState<boolean>(false);
+   const [on, setOn] = useState<boolean>(props.defaultOn ? props.defaultOn : false);
 
    const styleForOff = {
       background: on ? '' : 'red',
@@ -26,14 +27,16 @@ export const UnControlledOnOff = (props: UnControlledOnOffPropsType) => {
          <div style={styleForOff}
               className={s.off}
               onClick={() => {
-                 setOn(false)
+                 setOn(false);
+                 props.onChange?.(false)
               }}
          >Off
          </div>
          <div style={styleForOn}
               className={s.on}
               onClick={() => {
-                 setOn(true)
+                 setOn(true);
+                 props.onChange?.(true)
               }}
          >On
          </div>
