@@ -21,7 +21,7 @@ function App() {
 
          <Accordion title={'Control Menu'}
                     collapsed={collapsed}
-                    setCollapsed={() => setCollapsed(!collapsed)}
+                    setCollapsed={setCollapsed}
          />
          <UnControlledAccordion title={'Menu'}/>
 

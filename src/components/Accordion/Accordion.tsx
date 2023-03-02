@@ -3,14 +3,14 @@ import React, {useState} from "react";
 type PropsAccordion = {
    title: string
    collapsed: boolean
-   setCollapsed: () => void
+   setCollapsed: (collapsed: boolean) => void
 }
 
 export function Accordion(props: PropsAccordion) {
 
    return (
       <div>
-         <AccordionTitle title={props.title} setCollapsed={props.setCollapsed}/>
+         <AccordionTitle title={props.title} setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
          {
             !props.collapsed && <AccordionBody/>
          }
@@ -21,12 +21,13 @@ export function Accordion(props: PropsAccordion) {
 
 type PropsAccordionTitle = {
    title: string
-   setCollapsed: () => void
+   collapsed: boolean
+   setCollapsed: (collapsed: boolean) => void
 }
 
 function AccordionTitle(props: PropsAccordionTitle) {
    return (
-      <h3 onClick={props.setCollapsed}>{props.title}</h3>
+      <h3 onClick={() => props.setCollapsed(!props.collapsed)}>{props.title}</h3>
    );
 }
 
