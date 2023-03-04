@@ -1,12 +1,16 @@
 import React, {useState} from "react";
 
-type PropsAccordion = {
+export type AccordionPropsType = {
    title: string
    collapsed: boolean
+   /**
+    * Callback that is called when any item clicked
+    * @param value true/false
+    */
    setCollapsed: (collapsed: boolean) => void
 }
 
-export function Accordion(props: PropsAccordion) {
+export function Accordion(props: AccordionPropsType) {
 
    return (
       <div>
