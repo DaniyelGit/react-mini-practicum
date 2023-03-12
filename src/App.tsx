@@ -22,6 +22,12 @@ function App() {
          <Accordion title={'Control Menu'}
                     collapsed={collapsed}
                     setCollapsed={setCollapsed}
+                    item={[
+                       {id: 1, title: 'Даниель'},
+                       {id: 2, title: 'Виктория'},
+                       {id: 3, title: 'Евгений'},
+                       {id: 4, title: 'Захар'}
+                    ]}
          />
          <UnControlledAccordion title={'Menu'}/>
 

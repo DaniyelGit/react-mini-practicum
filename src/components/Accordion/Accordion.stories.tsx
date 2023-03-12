@@ -16,6 +16,12 @@ const Template: Story<AccordionPropsType> = (args) => <Accordion {...args}/>
 export const MenuCollapsedMode = Template.bind({});
 MenuCollapsedMode.args = {
    title: 'Menu',
+   item: [
+      {id: 1, title: 'Товары'},
+      {id: 2, title: 'Доставка'},
+      {id: 3, title: 'О нас'},
+      {id: 4, title: 'Корзина'}
+   ],
    collapsed: false,
    setCollapsed: callBack,
 };
@@ -23,20 +29,35 @@ MenuCollapsedMode.args = {
 export const UsersUnCollapsedMode = Template.bind({});
 UsersUnCollapsedMode.args = {
    title: 'Users',
+   item: [
+      {id: 1, title: 'Даниель'},
+      {id: 2, title: 'Виктория'},
+      {id: 3, title: 'Захар'},
+      {id: 4, title: 'Евгений'}
+   ],
    collapsed: true,
    setCollapsed: callBack
 };
 
-export const ChangingMode2 = Template.bind({});
-ChangingMode2.args = {}
 
-export const ChangingMode = () => {
+export const ChangingMode: Story<AccordionPropsType> = (args) => {
    const [value, setValue] = useState<boolean>(false);
 
    return (
-      <Accordion title={'Users'} collapsed={value} setCollapsed={() => setValue(!value)}/>
+      <Accordion {...args} setCollapsed={setValue} collapsed={value}/>
    );
 }
+
+ChangingMode.args = {
+   title: 'Users',
+   item: [
+      {id: 1, title: 'Даниель'},
+      {id: 2, title: 'Виктория'},
+      {id: 3, title: 'Захар'},
+      {id: 4, title: 'Евгений'}
+   ],
+}
+
 
 
 
