@@ -1,4 +1,6 @@
 import React, {ChangeEvent, useRef} from "react";
+import {Simulate} from "react-dom/test-utils";
+import select = Simulate.select;
 
 export default {
    title: 'input',
@@ -77,4 +79,20 @@ export const ControlledCheckbox = () => {
 }
 
 
+export const ControlledSelect = () => {
+   const [valueSelect, setValueSelect] = React.useState<string | undefined>('2');
 
+   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+      setValueSelect(e.currentTarget.value);
+   }
+
+   return (
+      <select value={valueSelect} onChange={onChangeHandler}>
+         <option>none</option>
+         <option value={'1'}>Минск</option>
+         <option value={'2'}>Гродно</option>
+         <option value={'3'}>Гомель</option>
+         <option value={'4'}>Витебск</option>
+      </select>
+   );
+}
