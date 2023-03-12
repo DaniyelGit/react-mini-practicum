@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {ChangeEvent, useRef} from "react";
 
 export default {
    title: 'input',
@@ -40,4 +40,29 @@ export const GetValueUnControlledInput = () => {
      </>
    );
 }
+
+
+// --------- Controlled Inputs -----------------
+
+export const ControlledInput = () => {
+   const [valueInput, setValueInput] = React.useState<string>('');
+   const [saveValue, setSaveValue] = React.useState<string>('');
+
+   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      setValueInput(e.currentTarget.value);
+   }
+
+   const onClickHandler = () => {
+      setSaveValue(valueInput);
+   }
+
+   return (
+      <>
+         <input value={valueInput} onChange={onChangeHandler}/>
+         <button onClick={onClickHandler}>save</button> - {saveValue}
+      </>
+   );
+}
+
+
 
