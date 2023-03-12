@@ -64,5 +64,17 @@ export const ControlledInput = () => {
    );
 }
 
+export const ControlledCheckbox = () => {
+   const [checkValue, setCheckValue] = React.useState<boolean>(true);
+
+   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      setCheckValue(e.currentTarget.checked);
+   }
+
+   return (
+      <input type={'checkbox'} checked={checkValue} onChange={onChangeHandler}/>
+   );
+}
+
 
 
