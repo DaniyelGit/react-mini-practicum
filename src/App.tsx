@@ -28,6 +28,7 @@ function App() {
                        {id: 3, title: 'Евгений'},
                        {id: 4, title: 'Захар'}
                     ]}
+                    onClick={(value) => (alert(`Человек под номером ${value} будь счастлив`))}
          />
          <UnControlledAccordion title={'Menu'}/>
 
