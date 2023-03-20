@@ -14,8 +14,10 @@ export type CustomSelectPropsType = {
 export const CustomSelect = (props: CustomSelectPropsType) => {
 
    const [active, setActive] = React.useState<boolean>(false);
+   const [hoveredElem, setHoveredElem] = React.useState(props.value);
 
    const selectedItem = props.items.find(el => el.value == props.value);
+   const hoveredItem = props.items.find(el => el.value === hoveredElem)
 
    const toggleActive = () => {
       setActive(!active);
@@ -35,18 +37,20 @@ export const CustomSelect = (props: CustomSelectPropsType) => {
          </span>
          {
             active &&
-            <div className={s.items}>
-               {
-                  props.items.map(item => (
-                     <div
-                        key={'option-' + item.value}
-                        onClick={() => onItemClick(item.value)}
-                     >
-                        {item.title}
-                     </div>
-                  ))
-               }
-            </div>
+                <div className={s.items}>
+                   {
+                      props.items.map(item => (
+                         <div
+                            key={'option-' + item.value}
+                            className={s.item + ' ' + (hoveredItem === item ? s.selected : '')}
+                            onClick={() => onItemClick(item.value)}
+                            onMouseEnter={() => setHoveredElem(item.value)}
+                         >
+                            {item.title}
+                         </div>
+                      ))
+                   }
+                </div>
          }
       </div>
    );

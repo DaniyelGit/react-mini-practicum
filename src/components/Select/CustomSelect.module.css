@@ -5,6 +5,7 @@
 .select {
     position: relative;
     width: 100px;
+    height: 25px;
 }
 
 .select span {
@@ -12,6 +13,7 @@
     padding: 3px;
     border: 1px solid #000;
     cursor: pointer;
+    height: 100%;
 }
 
 .items {
@@ -27,4 +29,14 @@
 
 .items > div {
     cursor: pointer;
+}
+
+.item {
+
+}
+
+.selected {
+    width: 100%;
+    background-color: blue;
+    color: #fff;
 }
