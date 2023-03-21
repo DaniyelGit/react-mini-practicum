@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {changeCollapsedAC, reducerAccordion, stateAccordion} from "./reducerAccordion";
 
 type UnControlledAccordionPropsType = {
    title: string
@@ -6,10 +7,11 @@ type UnControlledAccordionPropsType = {
 
 export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => {
 
-   const [collapsed, setCollapsed] = useState(true);
+   // const [collapsed, setCollapsed] = useState(true);
+   const [state, dispatch] = React.useReducer(reducerAccordion, stateAccordion);
 
    const setCollapsedHandler = () => {
-      setCollapsed(!collapsed);
+      dispatch(changeCollapsedAC(!state.collapsed));
    }
 
    return (
@@ -17,7 +19,7 @@ export const UnControlledAccordion = (props: UnControlledAccordionPropsType) => 
          <div>
             <UnControlledAccordionTitle title={props.title} setCollapsed={setCollapsedHandler}/>
             {
-               !collapsed && <UnControlledAccordionBody/>
+               !state.collapsed && <UnControlledAccordionBody/>
             }
          </div>
       </div>
