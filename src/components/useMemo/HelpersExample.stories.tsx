@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useMemo} from "react";
 
 export default {
    title: 'HelpersExampleStories'
@@ -14,7 +14,7 @@ type CitiesType = {
 }
 type SelectPropsType = {
    countries: CountriesType[]
-   cities: CitiesType
+   cities: string[]
    setValue: (value: string) => void
    value: string
 }
@@ -39,7 +39,7 @@ export const Select = (props: SelectPropsType) => {
             }
          </select>
 
-         <div>cities: {props.cities[props.value].join(' ')}</div>
+         <div>cities: {props.cities.join(' ')}</div>
       </>
    );
 }
@@ -48,6 +48,8 @@ export const ContainerSelect = React.memo(Select);
 
 
 export const HelpersExampleStories = () => {
+   console.log('Counter');
+
    const [countries, setCountries] = React.useState<CountriesType[]>([
       {id: '1', country: 'Беларусь', population: 400},
       {id: '2', country: 'Россия', population: 1000},
@@ -62,6 +64,11 @@ export const HelpersExampleStories = () => {
    const [value, setValue] = React.useState('2');
    const [counter, setCounter] = React.useState(0);
 
+   const filteredCities = useMemo(() => {
+      const newArr: string[] = [];
+      countries.forEach(el => cities[el.id].filter(c => c.includes('а') ? newArr.push(c) : null))
+      return newArr;
+   }, [cities])
 
    return (
       <div>
@@ -70,7 +77,7 @@ export const HelpersExampleStories = () => {
          <div>
             <ContainerSelect
                countries={countries}
-               cities={cities}
+               cities={filteredCities}
                setValue={setValue}
                value={value}/>
          </div>
