@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {useEffect} from "react";
 
 export default {
@@ -60,3 +60,4 @@ export const Clock = () => {
       </>
    );
 }
+
